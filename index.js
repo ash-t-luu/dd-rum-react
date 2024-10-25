@@ -12,6 +12,8 @@ const logger = require("./log");
 
 const app = express();
 
+const span = tracer.scope().active();
+
 const quotes = [
   "Strive not to be a success, but rather to be of value. - Albert Einstein",
   "Believe you can and you're halfway there. - Theodore Roosevelt",
@@ -19,15 +21,13 @@ const quotes = [
 ];
 
 app.get("/", (_req, res) => {
-  //   const span = tracer.startSpan('get_quote');
   try {
     logger.info("Generating quote...");
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    // span.setTag('quote', randomQuote);
+    span.setTag('quote', randomQuote);
     res.send(randomQuote + "\n");
   } catch (error) {
-    // span.setTag('error', true);
-    // span.setTag('error.message', error.message);
+    span.setTag('error.message', error.message);
     logger.error("An error occurred", {
       message: err.message,
       stack: err.stack,
