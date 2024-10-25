@@ -10,9 +10,7 @@ const tracer = require("dd-trace").init({
 const express = require("express");
 const logger = require("./log");
 
-const app = express();
-
-const span = tracer.scope().active();
+const app = express();``
 
 const quotes = [
   "Strive not to be a success, but rather to be of value. - Albert Einstein",
@@ -21,17 +19,19 @@ const quotes = [
 ];
 
 app.get("/", (_req, res) => {
+  const span = tracer.scope().active();
+
   try {
     logger.info("Generating quote...");
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     span.setTag('quote', randomQuote);
-    res.send(randomQuote + "\n");
+    res.status(200).send(randomQuote + "\n");
   } catch (error) {
-    span.setTag('error.message', error.message);
     logger.error("An error occurred", {
-      message: err.message,
-      stack: err.stack,
+      message: error.message,
+      stack: error.stack,
     });
+    span.setTag('error.message', error.message);
     res.status(500).send("An error occurred in generating quote");
   }
 });
