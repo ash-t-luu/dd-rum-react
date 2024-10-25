@@ -4,12 +4,13 @@ const tracer = require("dd-trace").init({
   service: "dd-nodejs-apm",
   version: "1.0.0",
   logInjection: true,
-  runtimeMetrics: true,
+  runtimeMetrics: true
 });
 
 const express = require("express");
-const app = express();
 const logger = require("./log");
+
+const app = express();
 
 const quotes = [
   "Strive not to be a success, but rather to be of value. - Albert Einstein",
