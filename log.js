@@ -1,9 +1,9 @@
-const { createLogger, format, transports } = require('winston');
-const path = require('path');
+const { createLogger, format, transports } = require("winston");
+const path = require("path");
 const appRoot = path.resolve(__dirname);
 
 const logger = createLogger({
-    level: 'info',
+    level: "info",
     exitOnError: false,
     format: format.combine(
         format.timestamp(),

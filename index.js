@@ -10,12 +10,14 @@ const tracer = require("dd-trace").init({
 const express = require("express");
 const logger = require("./log");
 
-const app = express();``
+const app = express();
 
 const quotes = [
   "Strive not to be a success, but rather to be of value. - Albert Einstein",
   "Believe you can and you're halfway there. - Theodore Roosevelt",
   "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
+  "The best way to predict the future is to invent it. - Alan Kay",
+  "Passion is energy. Feel the power that comes from focusing on what excites you. - Oprah Winfrey"
 ];
 
 app.get("/", (_req, res) => {

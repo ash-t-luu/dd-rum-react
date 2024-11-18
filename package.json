@@ -1,7 +1,7 @@
 {
   "name": "dd-nodejs-apm",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tutorial for setting up Node.js tracing, logs, and profiling in a sandboxed Datadog platform in a host-based instance",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
