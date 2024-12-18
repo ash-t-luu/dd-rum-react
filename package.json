@@ -1,7 +1,7 @@
 {
-  "name": "dd-nodejs-apm",
+  "name": "dd-rum-react",
   "version": "1.0.0",
-  "description": "Tutorial for setting up Node.js tracing, logs, and profiling in a sandboxed Datadog platform in a host-based instance",
+  "description": "Simple React App with Datadog RUM",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,8 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dd-trace": "^5.24.0",
+    "cors": "^2.8.5",
     "express": "^4.21.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "winston": "^3.15.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.3"
   }
 }
