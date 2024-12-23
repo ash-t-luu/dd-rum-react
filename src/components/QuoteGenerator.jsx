@@ -6,17 +6,22 @@ const QuoteGenerator = () => {
     const [error, setError] = useState("");
 
     const fetchQuote = async () => {
+        let error;
         try {
             setError("");
             const response = await fetch("http://localhost:5173/api/quotes");
             if (!response.ok) {
-                datadogRum.addError("Failed to fetch quote", response.ok);
-                throw new Error("Failed to fetch quote");
+                error = new Error(`Failed to fetch quote: ${response.status} ${response.statusText}`);
+                datadogRum.addError(error);
+                throw new error;
             }
             const data = await response.json();
             setQuote(data.quote);
         } catch (error) {
-            setError(`Failed to fetch quote: ${error.message}`);
+            error = new Error(`Failed to fetch quote: ${err.message}`);
+            datadogRum.addError(error);
+            setError(error.message);
+            throw new error;
         }
     };
 
