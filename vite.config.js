@@ -12,5 +12,11 @@ export default defineConfig({
         rewrite: (path) => path,
       },
     }
+  },
+  build: {
+    outDir: 'build'
+  },
+  define: {
+    'process.env': {}
   }
-})
+});

@@ -3,9 +3,8 @@ import React from "react";
 import QuoteGenerator from "./components/QuoteGenerator";
 import './App.css';
 
-require('dotenv').config();
-const app_id = process.env.REACT_APP_APPID;
-const client_token = process.env.REACT_APP_CLIENT_TOKEN;
+const app_id = import.meta.env.VITE_APP_APPID;
+const client_token = import.meta.env.VITE_APP_CLIENT_TOKEN;
 
 datadogRum.init({
   applicationId: `${app_id}`,
@@ -20,6 +19,7 @@ datadogRum.init({
   trackResources: true,
   trackLongTasks: true,
   defaultPrivacyLevel: 'mask-user-input',
+  allowedTracingUrls: ["http://localhost:5173/"]
 });
 
 function App() {
