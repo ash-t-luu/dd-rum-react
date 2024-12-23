@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { datadogRum } from "@datadog/browser-rum";
 
 const QuoteGenerator = () => {
     const [quote, setQuote] = useState("");
@@ -9,6 +10,7 @@ const QuoteGenerator = () => {
             setError("");
             const response = await fetch("http://localhost:5173/api/quotes");
             if (!response.ok) {
+                datadogRum.addError("Failed to fetch quote", response.ok);
                 throw new Error("Failed to fetch quote");
             }
             const data = await response.json();
