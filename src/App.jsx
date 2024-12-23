@@ -12,7 +12,7 @@ datadogRum.init({
   site: 'datadoghq.com',
   service: 'quotes-generator',
   env: 'dev',
-  version: '1.0.0',
+  version: '1.0.1',
   sessionSampleRate: 100,
   sessionReplaySampleRate: 100,
   trackUserInteractions: true,
