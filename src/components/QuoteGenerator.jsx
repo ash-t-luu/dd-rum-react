@@ -18,7 +18,7 @@ const QuoteGenerator = () => {
             const data = await response.json();
             setQuote(data.quote);
         } catch (error) {
-            error = new Error(`Failed to fetch quote: ${err.message}`);
+            error = new Error(`Failed to fetch quote: ${error.message}`);
             datadogRum.addError(error);
             setError(error.message);
             throw new error;
