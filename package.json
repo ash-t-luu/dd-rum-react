@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite",
+    "dev": "node server/index.js & npx vite",
     "build": "vite build",
     "serve": "vite preview"
   },
@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@datadog/browser-rum": "^5.34.0",
+    "@datadog/datadog-ci": "^2.46.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.1",
